@@ -13,6 +13,7 @@ export default function Code() {
     const { Configuration, OpenAIApi } = require("openai");
   const configuration = new Configuration({
     apiKey: "APIKEY",
+
   });
 
 
@@ -25,15 +26,20 @@ export default function Code() {
           alert("Please provide the code.");
           return;
         }
-        const message = `ChatVision, the language provided is ${language} and the code given is already provided. Can you please explain it`
+        const message = `ChatVision, the language provided is ${language} and the code given is ${code}. Can you please explain it`
 
         const updatedMessages = [
           ...history,
           {
-            role: "user",
+            role: "system",
             content: message,
           },
+          {
+            role:"user",
+            content: "Please explain the code."
+          },
         ];
+
         setHistory(updatedMessages)
         const openai = new OpenAIApi(configuration);
         try{

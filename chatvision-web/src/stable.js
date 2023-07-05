@@ -10,6 +10,7 @@ export default function Stable(){
     const { Configuration, OpenAIApi } = require("openai");
     const configuration = new Configuration({
       apiKey: "APIKEY",
+
     });
 
     const handleKeyDown = (e) => {
