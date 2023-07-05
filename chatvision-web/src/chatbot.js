@@ -27,7 +27,7 @@ export default function ChatBot() {
 
   const { Configuration, OpenAIApi } = require("openai");
   const configuration = new Configuration({
-    apiKey: "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",
+    apiKey: APIKEY,
   });
 
   const handleKeyDown = (e) => {
