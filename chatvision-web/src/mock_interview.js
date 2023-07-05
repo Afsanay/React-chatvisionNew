@@ -13,7 +13,7 @@ export default function Quiz() {
 
     const { Configuration, OpenAIApi } = require("openai");
   const configuration = new Configuration({
-    apiKey: APIKEY,
+    apiKey: "APIKEY",
   });
 
 
