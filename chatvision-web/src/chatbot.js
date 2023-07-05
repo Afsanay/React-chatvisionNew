@@ -123,38 +123,6 @@ export default function ChatBot() {
           </svg></button>
 
         </div>
-
-        {/* <div className="grid grid-cols-3 p-4">
-
-
-          <div className="h-200">
-            <Link to="/quiz_master" className="block max-w-md p-6 bg-gray-100 border border-gray-200 rounded-lg shadow hover:bg-gray-100">
-              <img src="https://i.imgur.com/SYL3f0M.png" className="h-10 w-10"/>
-              <text className="font-bold text-xl underline break-after">{"Quiz Master \n"}</text>
-              <text>Practice your knowledge and understanding of any topic by dynamic AI-generated multiple choice questions with detailed explanations.</text>
-              </Link>
-          </div>
-
-
-          <div className="h-200">
-          <Link to="/mock_interview" className="block max-w-md p-6 bg-gray-100 border border-gray-200 rounded-lg shadow hover:bg-gray-100">
-              <img src="https://i.imgur.com/CRBxvAz.png" className="h-10 w-10"/>
-              <text className="font-bold text-xl underline break-after">{"Mock Interview \n"}</text>
-              <text>Simulate an interview for any job position, providing personalized feedback and helping you prepare for your real interview.</text>
-          </Link>
-          </div>
-
-
-          <div className="h-200">
-          <Link to="/code_explainer" className="block  max-w-md p-6 bg-gray-100 border border-gray-200 rounded-lg shadow hover:bg-gray-100">
-              <img src="https://i.imgur.com/gznl8L8.png" className="h-10 w-10"/>
-              <text className="font-bold text-xl underline break-after">{"Code Explainer\n"}</text>
-              <text>Breaks down any piece of code and provides a clear explanation of the code helping you understand programming concepts and improve your coding skills.</text>
-          </Link>
-          </div>
-
-        </div> */}
-        
     </div>
     </>
   );
