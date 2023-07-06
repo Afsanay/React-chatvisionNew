@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import Navbar from "./navbar";
-import SideBar from "./sidebar";
 
-const SYSTEM_MESSAGE = "You are an assistant that helps users test their understanding of a Topic by asking them multiple choice questions. The Topic and Difficulty level will be given to you, and you should reply with a single multiple choice question. The user will then reply with the answer, which could be a single character indicating the selected option or the full answer. If the answer is incorrect, simply mention that the answer is incorrect, and ask the user to try again. Don't reveal the correct answer or provide any explanation before the user has answered the question correctly.If the answer is correct, let the user know the answer is correct, provide a brief explanation, and then ask a new multiple choice question related to the same Topic and repeat the process. Never ask the same question twice. Adjust the questions' difficultly based on the provided Difficulty level."
+const SYSTEM_MESSAGE = "You are an assistant, named ChatVision made by Priyanshu Sobti, that helps users test their understanding of a Topic by asking them multiple choice questions. The Topic and Difficulty level will be given to you, and you should reply with a single multiple choice question. The user will then reply with the answer, which could be a single character indicating the selected option or the full answer. If the answer is incorrect, simply mention that the answer is incorrect, and ask the user to try again. Don't reveal the correct answer or provide any explanation before the user has answered the question correctly.If the answer is correct, let the user know the answer is correct, provide a brief explanation, and then ask a new multiple choice question related to the same Topic and repeat the process. Never ask the same question twice. Adjust the questions' difficultly based on the provided Difficulty level."
 export default function Quiz() {
     const [history,setHistory] = useState([{role:"system",content:SYSTEM_MESSAGE}]);
     const [Topic,setLanguage] = useState("");
@@ -103,8 +102,8 @@ export default function Quiz() {
             <p className="text-gray-200 text-center gap-1 leading-loose">Practice your knowledge and understanding of any Topic by dynamic AI-generated multiple choice questions with detailed explanations.</p>
 
             <div className="mx-auto w-full max-w-screen-md mx-200 px-10 pt-0 pb-5 flex sticky bottom-0">
-                <textarea className="border w-fit rounded-md text-lg p-2 flex-1" placeholder="Topic" rows={1} onChange={(e) => setLanguage(e.target.value)}/>
-                <textarea className="border w-fit rounded-md text-lg p-2 flex-1" placeholder="Difficulty" onChange={(e) => setCode(e.target.value)}/>
+                <textarea className="border w-fit rounded-md text-lg p-2 flex-1 bg-gray-300 text-gray-600" placeholder="Topic" rows={1} onChange={(e) => setLanguage(e.target.value)}/>
+                <textarea className="border w-fit rounded-md text-lg p-2 flex-1 bg-gray-300 text-gray-600" placeholder="Difficulty" rows={1} onChange={(e) => setCode(e.target.value)}/>
                 <button className="border rounded-md bg-blue-600 hover:bg-blue-700 text-white px-4 ml-2" onClick={sendPrompt}>Start Quiz</button>
             </div>
         </div>
@@ -120,7 +119,7 @@ export default function Quiz() {
                         {message.role !== "user" && <div>
                         <div class="chat-message">
                 <div class="flex items-end">
-                    <div class="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-2 items-start">
+                    <div class="flex flex-col space-y-2 text-xs mx-2 order-2 items-start">
                       <div><span class="px-4 py-2 rounded-lg inline-block rounded-bl-none bg-gray-300 text-gray-600 prose"><ReactMarkdown>{message.content}</ReactMarkdown></span></div>
                     </div>
                     <img src={require('./images/newim.png')} alt="My profile" class="w-12 h-12 rounded-full order-1"/>                </div>
@@ -131,7 +130,7 @@ export default function Quiz() {
                         {message.role === "user" && <div >
           <div class="chat-message">
                   <div class="flex items-end justify-end">
-                      <div class="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-1 items-end">
+                      <div class="flex flex-col space-y-2 text-xs mx-2 order-1 items-end">
                         <div><span class="px-4 py-2 rounded-lg inline-block rounded-br-none bg-blue-600 text-white prose"><ReactMarkdown>{message.content}</ReactMarkdown></span></div>
                       </div>
                       <img src={require('./images/user.png')} alt="My profile" class="w-19 h-10 rounded-full order-2"/>

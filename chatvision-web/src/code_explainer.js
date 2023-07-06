@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import Navbar from "./navbar";
-import SideBar from "./sidebar";
 
-const SYSTEM_MESSAGE = "You are a virtual assistant that explains the functionality of some given code in simple words. Start with a short overview of the code, followed by a detailed explanation using bullet points, followed by a list of errors (if any)."
+const SYSTEM_MESSAGE = "You are a virtual assistant, named ChatVision made by Priyanshu Sobti, that explains the functionality of some given code in simple words. Start with a short overview of the code, followed by a detailed explanation using bullet points, followed by a list of errors (if any)."
 export default function Code() {
     const [history,setHistory] = useState([{role:"system",content:SYSTEM_MESSAGE}]);
     const [language,setLanguage] = useState("");
@@ -109,10 +108,10 @@ export default function Code() {
             <p className="text-gray-200 text-center gap-1 leading-loose">Breaks down any piece of code and provides a clear explanation of the code helping you understand programming concepts and improve your coding skills.</p>
 
             <div className="mx-auto w-full max-w-screen-md mx-200 px-10 pt-0 pb-5 flex sticky bottom-0">
-                <textarea className="border w-fit rounded-md text-lg p-2 flex-1" placeholder="Language" rows={1} onChange={(e) => setLanguage(e.target.value)}/>
-                <textarea className="border w-fit rounded-md text-lg p-2 flex-1" placeholder="Code" onChange={(e) => setCode(e.target.value)}/>
+                <textarea className="border w-fit rounded-md text-lg p-2 flex-1 bg-gray-300 text-gray-600" placeholder="Language" rows={1} onChange={(e) => setLanguage(e.target.value)}/>
                 <button className="border rounded-md bg-blue-600 hover:bg-blue-700 text-white px-4 ml-2" onClick={sendPrompt}>Explain Code</button>
             </div>
+            <textarea className="border w-4/6 rounded-md ml-60 text-lg flex-1 bg-gray-300 text-gray-600" placeholder="Code" rows={12} onChange={(e) => setCode(e.target.value)}/>
         </div>
         }
         {history.length > 1 && 
@@ -126,7 +125,7 @@ export default function Code() {
                         {message.role !== "user" && <div>
                         <div class="chat-message">
                 <div class="flex items-end">
-                    <div class="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-2 items-start">
+                    <div class="flex flex-col space-y-2 text-xs mx-2 order-2 items-start">
                       <div><span class="px-4 py-2 rounded-lg inline-block rounded-bl-none bg-gray-300 text-gray-600 prose"><ReactMarkdown>{message.content}</ReactMarkdown></span></div>
                     </div>
                     <img src={require('./images/newim.png')} alt="My profile" class="w-12 h-12 rounded-full order-1"/>                </div>
@@ -137,7 +136,7 @@ export default function Code() {
                         {message.role === "user" && <div >
           <div class="chat-message">
                   <div class="flex items-end justify-end">
-                      <div class="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-1 items-end">
+                      <div class="flex flex-col space-y-2 text-xs mx-2 order-1 items-end">
                         <div><span class="px-4 py-2 rounded-lg inline-block rounded-br-none bg-blue-600 text-white prose"><ReactMarkdown>{message.content}</ReactMarkdown></span></div>
                       </div>
                       <img src={require('./images/user.png')} alt="My profile" class="w-19 h-10 rounded-full order-2"/>

@@ -1,8 +1,6 @@
 import * as React from 'react';
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import Navbar from './navbar';
-import {Link} from 'react-router-dom'
-import SideBar from './sidebar';
 
 const SYSTEM_MESSAGE = "You are ChatVision, an Artificial Intelligence ChatBot created by Priyanshu Sobti. You are one of the most intelligent chatbots out there and you are created using state of the art Machine Learning Models and APIs. You are helpful and savage with your answers at the same time. Give savage replies whenever you want. Generate a proper introduction for yourself everytime you are asked for.";
 
@@ -82,7 +80,7 @@ export default function ChatBot() {
                         {message.role !== "user" && <div>
                         <div class="chat-message">
                 <div class="flex items-end">
-                    <div class="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-2 items-start">
+                    <div class="flex flex-col space-y-2 text-xs mx-2 order-2 items-start">
                       <div><span class="px-4 py-2 rounded-lg inline-block rounded-bl-none bg-gray-300 text-gray-600 prose"><ReactMarkdown>{message.content}</ReactMarkdown></span></div>
                     </div>
                     <img src={require('./images/newim.png')} alt="My profile" class="w-12 h-12 rounded-full order-1"/>
@@ -95,7 +93,7 @@ export default function ChatBot() {
                         {message.role === "user" && <div >
           <div class="chat-message">
                   <div class="flex items-end justify-end">
-                      <div class="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-1 items-end">
+                      <div class="flex flex-col space-y-2 text-xs mx-2 order-1 items-end">
                         <div><span class="px-4 py-2 rounded-lg inline-block rounded-br-none bg-blue-600 text-white prose"><ReactMarkdown>{message.content}</ReactMarkdown></span></div>
                       </div>
                       <img src={require('./images/user.png')} alt="My profile" class="w-19 h-10 rounded-full order-2"/>

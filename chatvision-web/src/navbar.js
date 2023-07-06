@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom";
 export default function Navbar(){
     const navigate=useNavigate();
@@ -26,6 +25,12 @@ export default function Navbar(){
 			</a>
             <a class="flex items-center  h-12 mt-2 rounded hover:bg-gray-700 hover:text-gray-300" href="/quiz_master">
 				Quiz-Master
+			</a>
+      <a class="flex items-center  h-12 mt-2 rounded hover:bg-gray-700 hover:text-gray-300" href="/email_gen">
+      &nbsp;Email-Generator &nbsp;
+			</a>
+      <a class="flex items-center  h-12 mt-2 rounded hover:bg-gray-700 hover:text-gray-300" href="/tutor">
+      &nbsp;Personal-Tutor&nbsp;
 			</a>
 		</div>
 	</div>

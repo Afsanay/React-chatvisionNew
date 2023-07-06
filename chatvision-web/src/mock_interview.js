@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import Navbar from "./navbar";
-import SideBar from "./sidebar";
 
-const SYSTEM_MESSAGE = "I want you to act as an interviewer. The user will be the candidate and you will ask the user interview questions for the given position.I want you to only reply as the interviewer. Do not write all the questions at once. I want you to only do the interview with me. Ask me the questions and wait for the user's answers. Do not write explanations.Ask the user questions one by one like an interviewer does and wait for the user's answers."
+const SYSTEM_MESSAGE = "You are an assistant named ChatVision made by Priyanshu Sobti.I want you to act as an interviewer. The user will be the candidate and you will ask the user interview questions for the given position.I want you to only reply as the interviewer. Do not write all the questions at once. I want you to only do the interview with me. Ask me the questions and wait for the user's answers. Do not write explanations.Ask the user questions one by one like an interviewer does and wait for the user's answers."
 
 export default function Quiz() {
     const [history,setHistory] = useState([{role:"system",content:SYSTEM_MESSAGE}]);
@@ -57,7 +56,6 @@ export default function Quiz() {
 
     const sendRequest = async () => {
         if(!userAns){
-            alert("Please Give an Answer");
             return;
         }
         const updatedMessages = [
@@ -83,6 +81,7 @@ export default function Quiz() {
             setHistory(updatedMessages2);
         }
         catch(error){
+          alert("Please check your API key")
           console.log(error);
         }
     }
@@ -104,8 +103,8 @@ export default function Quiz() {
             <p className="text-gray-200 text-center gap-1 leading-loose">Simulate an interview for any job position, providing personalized feedback and helping you prepare for your real interview.</p>
 
             <div className="mx-auto w-full max-w-screen-md mx-200 px-10 pt-0 pb-5 flex sticky bottom-0">
-                <textarea className="border w-fit rounded-md text-lg p-2 flex-1" placeholder="Position" rows={1} onChange={(e) => setLanguage(e.target.value)}/>
-                <textarea className="border w-fit rounded-md text-lg p-2 flex-1" placeholder="Difficulty" onChange={(e) => setCode(e.target.value)}/>
+                <textarea className="border w-fit rounded-md text-lg p-2 flex-1 bg-gray-300 text-gray-600" placeholder="Position" rows={1} onChange={(e) => setLanguage(e.target.value)}/>
+                <textarea className="border w-fit rounded-md text-lg p-2 flex-1 bg-gray-300 text-gray-600" placeholder="Difficulty" rows={1} onChange={(e) => setCode(e.target.value)}/>
                 <button className="border rounded-md bg-blue-600 hover:bg-blue-700 text-white px-4 ml-2" onClick={sendPrompt}>Start Quiz</button>
             </div>
         </div>
@@ -121,7 +120,7 @@ export default function Quiz() {
                         {message.role !== "user" && <div>
                         <div class="chat-message">
                 <div class="flex items-end">
-                    <div class="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-2 items-start">
+                    <div class="flex flex-col space-y-2 text-xs mx-2 order-2 items-start">
                       <div><span class="px-4 py-2 rounded-lg inline-block rounded-bl-none bg-gray-300 text-gray-600 prose"><ReactMarkdown>{message.content}</ReactMarkdown></span></div>
                     </div>
                     <img src={require('./images/newim.png')} alt="My profile" class="w-12 h-12 rounded-full order-1"/>                </div>
@@ -132,7 +131,7 @@ export default function Quiz() {
                         {message.role === "user" && <div >
           <div class="chat-message">
                   <div class="flex items-end justify-end">
-                      <div class="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-1 items-end">
+                      <div class="flex flex-col space-y-2 text-xs mx-2 order-1 items-end">
                         <div><span class="px-4 py-2 rounded-lg inline-block rounded-br-none bg-blue-600 text-white prose"><ReactMarkdown>{message.content}</ReactMarkdown></span></div>
                       </div>
                       <img src={require('./images/user.png')} alt="My profile" class="w-19 h-10 rounded-full order-2"/>

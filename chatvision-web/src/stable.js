@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Navbar from './navbar';
-import SideBar from "./sidebar";
 
 export default function Stable(){
     
