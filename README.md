@@ -2,8 +2,6 @@
 
 ## Your AI Friend
 
----
-
 ### Sign-up Page
 
 The username, email and the encrypted password is saved in the database
@@ -16,8 +14,6 @@ The chat is saved in local storage of the user to ensure privacy, which is loade
 ![ChatBot](/images/chatbot.png)
 
 ## Services Provided
-
----
 
 ### Text-to-Image
 
