@@ -23,7 +23,7 @@ export default function Stable(){
     const sendPrompt = async () =>{
         const openai = new OpenAIApi(configuration);
         const currPrompt = prompt;
-        setPrompt('');
+        // setPrompt('');
         try{
           const response = await openai.createImage({
             prompt: currPrompt,
